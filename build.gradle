@@ -32,14 +32,14 @@ apply plugin: 'cloudfoundry'
 tasks."cf-push".dependsOn assemble
 
 cloudfoundry {
-    target = "https://api.run.pivotal.io"
-    organization = "platform-eng"
-    space = "mstine"
+    target = "https://api.cf.dev"
+    organization = "eng"
+    space = "stu"
 
     application = "cities"
     file = file("${jar.archivePath}")
     host = "cities"
-    domain = "cfapps.io"
+    domain = "cf.dev"
     memory = 512
     instances = 1
     healthCheckTimeout = 180
@@ -58,10 +58,9 @@ cloudfoundry {
     //trustSelfSignedCerts = true
 }
 
-/*jar {
+jar {
     baseName = 'cities'
-    version =  '0.0.1-SNAPSHOT'
-} */
+}
 
 repositories {
     mavenCentral()
